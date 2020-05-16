@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { withRouter } from 'react-router';
 
-export default App;
+//Layouts
+import LayoutRoute from './components/_layout/LayoutRoute';
+
+
+import { Home } from './components/Home';
+import { UserProvider } from './contexts/UserContext'
+import { Authorize } from './components/Authorize';
+import { SignOut } from './components/SignOut';
+
+class App extends Component {
+
+  componentWillMount() {
+    this.unlisten = this.props.history.listen((location, action) => {
+      window.scrollTo(0,0)
+    });
+  }
+  componentWillUnmount() {
+      this.unlisten();
+  }
+  render(){
+    return (
+      <UserProvider>
+        <LayoutRoute exact path='/' component={Home} />
+        <LayoutRoute exact path='/sign-out' component={SignOut} />
+        <LayoutRoute exact path='/authorize' component={Authorize} />
+      </UserProvider>
+    )
+  }
+}
+export default  withRouter(App)
