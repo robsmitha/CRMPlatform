@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace Web.Shopping.API
 {
@@ -21,6 +22,13 @@ namespace Web.Shopping.API
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseSerilog((builderContext, config) =>
+                     {
+                         config
+                             .MinimumLevel.Information()
+                             .Enrich.FromLogContext()
+                             .WriteTo.Console();
+                     });
                 });
     }
 }

@@ -19,8 +19,17 @@ function setAppUser(appUser) {
     appUserSubject.next(appUser);
 }
 
-async function testapi () {
-    return sendRequest('/weatherforecast')
+async function testapi (data) {
+    const token = appUserSubject.value.token
+    var request = {
+        method: 'post',
+        headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` 
+        },
+        body: JSON.stringify(data ? data : {})
+    }
+    return sendRequest('/merchants/search',request)
 }
 
 function getB2cLoginUrl () {

@@ -1,0 +1,44 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcMerchants";
+
+package MerchantsApi;
+
+service Merchants {
+	rpc SearchMerchants(SearchMerchantsRequest) returns (SearchMerchantsResponse);
+}
+
+message SearchMerchantModel {
+	int32 ID = 1;
+	string Name = 2;
+	string Description = 3;
+	string CallToAction = 4;
+	string ShortDescription = 5;
+	string WebsiteUrl = 6;
+	string Street1 = 7;
+	string Street2 = 8;
+	string City = 9;
+	string StateAbbreviation = 10;
+	string Zip = 11;
+    double Latitude = 12;
+    double Longitude = 13;
+	int32 MerchantTypeID = 14;
+	string MerchantTypeName = 15;
+	string DefaultImageUrl = 16;
+    double MilesAway = 17;
+	string DistanceAway = 18;
+	string Location = 19;
+}
+
+message SearchMerchantsRequest {
+	string Keyword = 1;
+    double Lat = 2;
+    double Lng = 3;
+    int32 Miles = 4;
+    string Location = 5;
+}
+
+message SearchMerchantsResponse {
+	string DisplayLocation = 1;
+	repeated SearchMerchantModel Merchants = 2;
+}

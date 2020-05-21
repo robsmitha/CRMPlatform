@@ -1,12 +1,9 @@
 import appConfig from './../app.config.json'
-import { authService } from './auth.service'
 
-export async function sendRequest(func) {
-    const token = authService.appUserValue.token
+
+export async function sendRequest(func, request) {
     try {
-        const response = await fetch(appConfig.api_endpoint + func, {
-            headers: { 'Authorization': `Bearer ${token}` }
-        })
+        const response = await fetch(appConfig.api_endpoint + func, request)
         if(response.ok){
             const data = await response.json()
             return data
