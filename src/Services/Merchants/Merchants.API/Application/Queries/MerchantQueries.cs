@@ -23,8 +23,21 @@ namespace Merchants.API.Application.Queries
         {
             var data = from m in _context.Merchants.AsEnumerable()
                        join mt in _context.MerchantTypes.AsEnumerable() on m.MerchantTypeID equals mt.ID
+                       join mi in _context.MerchantImages.AsEnumerable() on new { MerchantID = m.ID, IsDefault = true } equals new { mi.MerchantID, mi.IsDefault } into tmp_mi
+                       from mi in tmp_mi.DefaultIfEmpty()
                        where m.WithinMiles(lat, lng, miles)
-                       select new { m };
+                       select new { m, mi };
+
+            return await Task.FromResult(data.ToList());
+        }
+        public async Task<IEnumerable<dynamic>> GetMerchant(int merchantId)
+        {
+            var data = from m in _context.Merchants.AsEnumerable()
+                       join mt in _context.MerchantTypes.AsEnumerable() on m.MerchantTypeID equals mt.ID
+                       join mi in _context.MerchantImages.AsEnumerable() on new { MerchantID = m.ID, IsDefault = true } equals new { mi.MerchantID, mi.IsDefault } into tmp_mi
+                       from mi in tmp_mi.DefaultIfEmpty()
+                       where m.ID == merchantId
+                       select new { m, mi };
 
             return await Task.FromResult(data.ToList());
         }

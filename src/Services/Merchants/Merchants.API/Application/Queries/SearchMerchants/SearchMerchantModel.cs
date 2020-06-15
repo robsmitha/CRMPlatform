@@ -25,18 +25,18 @@ namespace Merchants.API.Application.Queries.SearchMerchants
         public int MerchantTypeID { get; set; }
         public string MerchantTypeName { get; set; }
         public string DefaultImageUrl { get; set; }
-        public double? MilesAway { get; set; }
-        public string DistanceAway
+        public double MilesAway { get; set; }
+        public string DistanceAway// { get; set; }
         {
             get
             {
-                if (MilesAway == null) return string.Empty;
+                if (MilesAway == 0) return string.Empty;
 
                 //todo: globalization
                 return $"{MilesAway:0.0} Miles away";
             }
         }
-        public string Location
+        public string Location //{ get; set; }
         {
             get
             {

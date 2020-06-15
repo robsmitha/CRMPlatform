@@ -5,6 +5,7 @@ import { Container } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { app_display_name } from '../app.config.json'
 
 export class SignOut extends Component {
     render() {
@@ -19,7 +20,7 @@ export class SignOut extends Component {
                             <div className="row">
                                 <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
                                     <h1 className="h3 mb-4 text-center">
-                                        <FontAwesomeIcon icon={faUsers} /> CRM Platform
+                                        {app_display_name}
                                     </h1>
                                     <p className="lead mb-2 text-center text-muted">Are you sure you want to go?</p>
                                     <button type="button" onClick={signOut} className="btn btn-primary btn-block my-3">

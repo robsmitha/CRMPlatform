@@ -11,7 +11,8 @@ export const authService = {
     testapi,
     getB2cLoginUrl,
     appUser: appUserSubject.asObservable(),
-    get appUserValue() { return appUserSubject.value }
+    get appUserValue() { return appUserSubject.value },
+    getToken
 }
 
 function setAppUser(appUser) {
@@ -19,8 +20,20 @@ function setAppUser(appUser) {
     appUserSubject.next(appUser);
 }
 
+function clearAppUser() {
+    // remove user from local storage to log user out
+    localStorage.removeItem(_appUserKey);
+    appUserSubject.next(null);
+}
+
+function getB2cLoginUrl () {
+    return b2cLoginUrl()
+}
+function getToken(){
+    return appUserSubject.value != null ? appUserSubject.value.token : '';
+}
 async function testapi (data) {
-    const token = appUserSubject.value.token
+    const token = getToken()
     var request = {
         method: 'post',
         headers: { 
@@ -32,12 +45,3 @@ async function testapi (data) {
     return sendRequest('/merchants/search',request)
 }
 
-function getB2cLoginUrl () {
-    return b2cLoginUrl()
-}
-
-function clearAppUser() {
-    // remove user from local storage to log user out
-    localStorage.removeItem(_appUserKey);
-    appUserSubject.next(null);
-}

@@ -11,6 +11,7 @@ import { Home } from './components/Home';
 import { UserProvider } from './contexts/UserContext'
 import { Authorize } from './components/Authorize';
 import { SignOut } from './components/SignOut';
+import { HowItWorks } from './components/HowItWorks';
 
 class App extends Component {
 
@@ -28,6 +29,7 @@ class App extends Component {
         <LayoutRoute exact path='/' component={Home} />
         <LayoutRoute exact path='/sign-out' component={SignOut} />
         <LayoutRoute exact path='/authorize' component={Authorize} />
+        <LayoutRoute exact path='/how-it-works' component={HowItWorks} />
       </UserProvider>
     )
   }

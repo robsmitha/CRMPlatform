@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Merchants.API.Application.Common.Extensions
@@ -43,6 +44,22 @@ namespace Merchants.API.Application.Common.Extensions
             var c = 2 * Math.Asin(Math.Sqrt(a));
             return R * c;
 
+        }
+        public static string FormatLocation(this BaseAddress @this)
+        {
+            var fields = new[] { @this.Street1, @this.Street2, @this.City, @this.StateAbbreviation, @this.Zip };
+            var sb = new StringBuilder();
+            for (var i = 0; i < fields.Length; i++)
+            {
+                if (string.IsNullOrWhiteSpace(fields[i]))
+                    continue;
+
+                sb.Append($"{fields[i]}, ");
+            }
+            var location = sb.ToString().Trim();
+            return location.EndsWith(",")
+                ? location[0..^1]
+                : location;
         }
     }
 }

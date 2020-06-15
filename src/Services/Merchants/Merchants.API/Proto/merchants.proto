@@ -6,6 +6,7 @@ package MerchantsApi;
 
 service Merchants {
 	rpc SearchMerchants(SearchMerchantsRequest) returns (SearchMerchantsResponse);
+	rpc GetMerchant(GetMerchantRequest) returns (GetMerchantResponse);
 }
 
 message SearchMerchantModel {
@@ -41,4 +42,31 @@ message SearchMerchantsRequest {
 message SearchMerchantsResponse {
 	string DisplayLocation = 1;
 	repeated SearchMerchantModel Merchants = 2;
+}
+
+message GetMerchantRequest {
+    int32 MerchantID = 1;
+}
+
+message GetMerchantResponse {
+	int32 ID = 1;
+	string Name = 2;
+	string Description = 3;
+	string CallToAction = 4;
+	string ShortDescription = 5;
+	string WebsiteUrl = 6;
+	string Phone = 7;
+	string OperatingHours = 8;
+	string ContactEmail = 9;
+	string Street1 = 10;
+	string Street2 = 11;
+	string City = 12;
+	string StateAbbreviation = 13;
+	string Zip = 14;
+    double Latitude = 15;
+    double Longitude = 16;
+	int32 MerchantTypeID = 17;
+	string MerchantTypeName = 18;
+	string DefaultImageUrl = 19;
+	string DisplayLocation = 20;
 }

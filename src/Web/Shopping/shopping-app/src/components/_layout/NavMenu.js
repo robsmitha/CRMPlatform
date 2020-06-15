@@ -4,8 +4,9 @@ import './NavMenu.css'
 import { Container, NavbarToggler, NavbarBrand, NavLink, Navbar } from 'reactstrap';
 import { UserConsumer } from '../../contexts/UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faBars, faSignOutAlt, faSignInAlt, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faBars, faSignOutAlt, faSignInAlt, faUsers, faTshirt, faInfoCircle, faHorseHead } from '@fortawesome/free-solid-svg-icons';
 import { authService } from '../../services/auth.service';
+import { app_display_name } from "../../app.config.json";
 
 export default class NavMenu extends Component {
     constructor(props) {
@@ -18,7 +19,11 @@ export default class NavMenu extends Component {
     }
 
     componentDidMount(){
-        this.setState({b2cLoginUrl: authService.getB2cLoginUrl()})
+        const navbar = document.querySelector('.main-nav');
+        this.setState({ 
+            navHeight: navbar !== null ? navbar.clientHeight : 56,
+            b2cLoginUrl: authService.getB2cLoginUrl() 
+        })
     }
 
     toggleNavbar = () => {
@@ -40,7 +45,7 @@ export default class NavMenu extends Component {
                 <Navbar className="main-nav navbar navbar-expand-lg fixed-top navbar-light shadow bg-light p-3">
                     <Container>
                         <NavbarBrand className="mr-auto mr-lg-0" tag={Link} to="/" onClick={this.collapseNavbar}>
-                            <FontAwesomeIcon icon={faUsers} /> CRM Platform
+                            <FontAwesomeIcon icon={faHorseHead} />&nbsp;{app_display_name}
                         </NavbarBrand>
                         <NavbarToggler className="p-2 border-0" onClick={this.toggleNavbar}>
                             <FontAwesomeIcon icon={collapsed ? faBars : faTimes} />
@@ -48,6 +53,18 @@ export default class NavMenu extends Component {
                         <div style={{ top: navHeight + 'px' }} 
                         className={'navbar-collapse offcanvas-collapse bg-light '.concat(!collapsed ? ' open' : '')} 
                         id="navbarsExampleDefault">
+                            <ul className="navbar-nav">
+                            <li className="nav-item">
+                                    <NavLink tag={Link} to={'/'}>
+                                        Home
+                                    </NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink tag={Link} to={'how-it-works'}>
+                                        How it works
+                                    </NavLink>
+                                </li>
+                            </ul>
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
                                     <NavLink tag={Link} hidden={!auth} to={'sign-out'}>

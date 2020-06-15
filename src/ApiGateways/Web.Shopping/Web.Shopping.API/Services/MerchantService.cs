@@ -29,5 +29,18 @@ namespace Web.Shopping.API.Services
                 return response;
             });
         }
+
+        public async Task<GetMerchantResponse> GetMerchant(GetMerchantRequest request)
+        {
+            return await GrpcCallerService.CallService(_urls.GrpcMerchants, async channel =>
+            {
+                var client = new Merchants.MerchantsClient(channel);
+                _logger.LogDebug("grpc client created, request = {@request}", request);
+                var response = await client.GetMerchantAsync(request);
+                _logger.LogDebug("grpc response {@response}", response);
+
+                return response;
+            });
+        }
     }
 }

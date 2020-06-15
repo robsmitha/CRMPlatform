@@ -17,11 +17,18 @@ namespace Web.Shopping.API.Controllers
             _merchantService = merchantService;
         }
 
-        //[AllowAnonymous]
+        [AllowAnonymous]
         [HttpPost("search")]
         public async Task<ActionResult<SearchMerchantsResponse>> SearchMerchants(SearchMerchantsRequest request = null)
         {
             return await _merchantService.Search(request);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("GetMerchant")]
+        public async Task<ActionResult<GetMerchantResponse>> GetMerchant(GetMerchantRequest request)
+        {
+            return await _merchantService.GetMerchant(request);
         }
     }
 }

@@ -4,7 +4,7 @@ import NavMenu from './NavMenu';
 
 
 const Layout = ({ children }) => (
-    <section className="py-md-5 py-4">
+    <section>
         <NavMenu />
         {children}
     </section>
