@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Web.Common.Shared.Services;
 
-namespace Web.Shopping.API.Controllers
+namespace Web.Subscriptions.API.Controllers
 {
     [Authorize]
     [Route("api/v1/[controller]")]

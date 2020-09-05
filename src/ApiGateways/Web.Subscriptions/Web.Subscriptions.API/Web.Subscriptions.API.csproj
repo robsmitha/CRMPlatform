@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>aspnet-Web.Shopping.API-C7F4D47E-467E-43C4-A80B-DAA26F7ED030</UserSecretsId>
+    <UserSecretsId>aspnet-Web.Subscriptions.API-AAE05539-BF7E-4576-9F2A-9754BBA0FF5E</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

@@ -50,7 +50,38 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventBus", "EventBus", "{7F67E3D8-308B-4C23-909B-9BBA4A111C81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeedWork", "src\BuildingBlocks\EventBus\SeedWork\SeedWork.csproj", "{EDE912DC-A17C-43EA-90E5-10CFF840F5E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeedWork", "src\BuildingBlocks\EventBus\SeedWork\SeedWork.csproj", "{EDE912DC-A17C-43EA-90E5-10CFF840F5E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Subscriptions", "Subscriptions", "{44544615-091E-4AF7-95FC-817761A642CB}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "subscriptions-app", "src\Web\Subscriptions\subscriptions-app\", "{7EB5689C-77B3-4566-9E73-67C686CDB9B6}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_59253"
+		Debug.AspNetCompiler.PhysicalPath = "src\Web\Subscriptions\subscriptions-app\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59253\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_59253"
+		Release.AspNetCompiler.PhysicalPath = "src\Web\Subscriptions\subscriptions-app\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59253\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "59253"
+		SlnRelativePath = "src\Web\Subscriptions\subscriptions-app\"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web.Subscriptions", "Web.Subscriptions", "{FFCCD342-2C73-4A1C-B602-44B514FAE46E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Subscriptions.API", "src\ApiGateways\Web.Subscriptions\Web.Subscriptions.API\Web.Subscriptions.API.csproj", "{97D489F2-CE4B-491B-8113-5D7121D07829}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web.Common", "Web.Common", "{780F17DD-4FF9-4B42-8AC0-FE62A352C8E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Common.Shared", "src\ApiGateways\Web.Common\Web.Common.Shared\Web.Common.Shared.csproj", "{93CC2F86-523A-4DA7-B540-940A96D7D5A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +112,17 @@ Global
 		{EDE912DC-A17C-43EA-90E5-10CFF840F5E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDE912DC-A17C-43EA-90E5-10CFF840F5E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDE912DC-A17C-43EA-90E5-10CFF840F5E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EB5689C-77B3-4566-9E73-67C686CDB9B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EB5689C-77B3-4566-9E73-67C686CDB9B6}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EB5689C-77B3-4566-9E73-67C686CDB9B6}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{97D489F2-CE4B-491B-8113-5D7121D07829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97D489F2-CE4B-491B-8113-5D7121D07829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97D489F2-CE4B-491B-8113-5D7121D07829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97D489F2-CE4B-491B-8113-5D7121D07829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93CC2F86-523A-4DA7-B540-940A96D7D5A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93CC2F86-523A-4DA7-B540-940A96D7D5A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93CC2F86-523A-4DA7-B540-940A96D7D5A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93CC2F86-523A-4DA7-B540-940A96D7D5A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +142,12 @@ Global
 		{CFF24378-DFB2-4781-931A-673A5996019F} = {4B3F186E-49BB-4014-900E-B0E5F9F72173}
 		{7F67E3D8-308B-4C23-909B-9BBA4A111C81} = {CFF24378-DFB2-4781-931A-673A5996019F}
 		{EDE912DC-A17C-43EA-90E5-10CFF840F5E1} = {7F67E3D8-308B-4C23-909B-9BBA4A111C81}
+		{44544615-091E-4AF7-95FC-817761A642CB} = {3AC0905D-E47A-41BE-B1C3-99101A78B5A0}
+		{7EB5689C-77B3-4566-9E73-67C686CDB9B6} = {44544615-091E-4AF7-95FC-817761A642CB}
+		{FFCCD342-2C73-4A1C-B602-44B514FAE46E} = {61EFFAF7-FD2E-43A7-B865-E7AE840C9D7F}
+		{97D489F2-CE4B-491B-8113-5D7121D07829} = {FFCCD342-2C73-4A1C-B602-44B514FAE46E}
+		{780F17DD-4FF9-4B42-8AC0-FE62A352C8E7} = {61EFFAF7-FD2E-43A7-B865-E7AE840C9D7F}
+		{93CC2F86-523A-4DA7-B540-940A96D7D5A6} = {780F17DD-4FF9-4B42-8AC0-FE62A352C8E7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0384BEB6-59F2-4D4D-94AA-8242A39609AE}

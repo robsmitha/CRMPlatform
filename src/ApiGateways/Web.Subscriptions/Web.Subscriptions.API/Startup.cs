@@ -6,18 +6,17 @@ using Microsoft.AspNetCore.Authentication.AzureADB2C.UI;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using MediatR;
 using System.Reflection;
-using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Web.Common.Shared.Behaviors;
 using Web.Common.Shared.Interfaces;
 using Web.Common.Shared.Services;
 using Web.Common.Shared.Config;
+using Microsoft.AspNetCore.Http;
 using Web.Common.Shared.Filters;
 
-namespace Web.Shopping.API
+namespace Web.Subscriptions.API
 {
     public class Startup
     {
@@ -33,10 +32,10 @@ namespace Web.Shopping.API
         {
             services.AddAuthentication(AzureADB2CDefaults.BearerAuthenticationScheme)
                 .AddAzureADB2CBearer(options => Configuration.Bind("AzureAdB2C", options));
-            
+
             services.AddCors();
 
-            //TODO: configure cors policy to only allow shopping-app
+            //TODO: configure cors policy to only allow subscriptions-app
             //services.AddCors(options =>
             //{
             //    options.AddPolicy("CorsPolicy",
@@ -99,19 +98,11 @@ namespace Web.Shopping.API
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IMerchantService, MerchantService>();
             services.AddHttpClient<IMerchantApiClient, MerchantApiClient>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            var pathBase = Configuration["PATH_BASE"];
-            if (!string.IsNullOrEmpty(pathBase))
-            {
-                loggerFactory.CreateLogger<Startup>().LogDebug("Using PATH BASE '{pathBase}'", pathBase);
-                app.UsePathBase(pathBase);
-            }
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

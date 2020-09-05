@@ -14,5 +14,5 @@ async function getMerchant (merchantId) {
         },
         body: JSON.stringify({MerchantID: merchantId})
     }
-    return sendRequest(`/merchants/getMerchant`,request)
+    return sendRequest(`/merchants/getMerchant`, request)
 }
