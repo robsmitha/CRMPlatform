@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Web.Common\Web.Common.Shared\Web.Common.Shared.csproj" />
+    <ProjectReference Include="..\..\Web.Shared\Web.Shared.Common\Web.Shared.Common.csproj" />
   </ItemGroup>
 
 </Project>

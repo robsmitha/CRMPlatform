@@ -1,9 +1,9 @@
 ﻿using Merchants.Domain.Aggregates.OrganizationAggregate;
-using Merchants.Domain.SeedWork;
 using Merchants.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Shared.Domain.SeedWork;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

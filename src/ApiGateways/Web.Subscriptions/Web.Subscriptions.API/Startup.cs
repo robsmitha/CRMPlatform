@@ -9,12 +9,12 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using MediatR;
 using System.Reflection;
-using Web.Common.Shared.Behaviors;
-using Web.Common.Shared.Interfaces;
-using Web.Common.Shared.Services;
-using Web.Common.Shared.Config;
+using Web.Shared.Common.Behaviors;
+using Web.Shared.Common.Interfaces;
+using Web.Shared.Common.Services;
+using Web.Shared.Common.Config;
 using Microsoft.AspNetCore.Http;
-using Web.Common.Shared.Filters;
+using Web.Shared.Common.Filters;
 
 namespace Web.Subscriptions.API
 {

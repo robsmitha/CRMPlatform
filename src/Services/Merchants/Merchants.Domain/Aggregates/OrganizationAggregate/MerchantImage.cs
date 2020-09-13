@@ -1,4 +1,4 @@
-﻿using Merchants.Domain.SeedWork;
+﻿using Shared.Domain.SeedWork;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;

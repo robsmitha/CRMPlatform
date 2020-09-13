@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using Merchants.Infrastructure;
-using Merchants.Infrastructure.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +12,7 @@ using System.Net;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using Serilog;
+using Merchants.Infrastructure.Services;
 
 namespace Merchants.API
 {

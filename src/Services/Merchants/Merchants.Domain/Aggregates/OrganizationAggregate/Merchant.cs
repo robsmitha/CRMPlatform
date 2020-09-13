@@ -1,4 +1,4 @@
-﻿using Merchants.Domain.SeedWork;
+﻿using Shared.Domain.SeedWork;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Merchants.Domain.Aggregates.OrganizationAggregate

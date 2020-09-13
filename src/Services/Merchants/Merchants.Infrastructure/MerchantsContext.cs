@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Merchants.Domain.SeedWork;
+using Shared.Domain.SeedWork;
 using Merchants.Domain.Aggregates.OrganizationAggregate;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore.Design;
-using System.Linq;
+using Shared.Infrastructure.Extensions;
 
 namespace Merchants.Infrastructure
 {

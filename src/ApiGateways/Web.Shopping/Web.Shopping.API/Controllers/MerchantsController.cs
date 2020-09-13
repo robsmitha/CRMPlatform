@@ -2,7 +2,7 @@
 using GrpcMerchants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Web.Common.Shared.Services;
+using Web.Shared.Common.Services;
 
 namespace Web.Shopping.API.Controllers
 {
